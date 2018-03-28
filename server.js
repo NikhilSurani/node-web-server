@@ -20,10 +20,9 @@ app.use((req, res, move) => {
     
 });
 
-app.use((req, res, next) => {
-    res.render("miantainance.hbs");
-    
-});
+// app.use((req, res, next) => {
+//     res.render("miantainance.hbs");    
+// });
 
 app.use(express.static(__dirname + '/public'));
 
@@ -50,8 +49,11 @@ app.get('/about', (req, res) => {
     });
 });
 
-app.get('/bad', (req, res) => {
-    res.send("<h1>400 Page</h1>");
+app.get('/contact', (req, res) => {
+    res.render('contact.hbs', {
+        pageTitle: "Contact Us",
+        // currentYear: new Date().getFullYear()
+    });
 });
 
 app.listen(3000, () => {
